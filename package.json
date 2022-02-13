@@ -1,0 +1,14 @@
+{
+  "name": "ugallery",
+  "version": "1.0.0",
+  "description": "ugallery webpage",
+  "main": "index.js",
+  "scripts": {
+    "compike:sass": "node-sass sass/main.scss css/style.css"
+  },
+  "author": "ujju banna",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.49.0"
+  }
+}

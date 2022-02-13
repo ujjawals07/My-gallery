@@ -1,0 +1,144 @@
+*,
+*::before,
+*::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+
+html{
+    font-size: 70%;
+    box-sizing: border-box;
+}
+
+body{
+    line-height: 1.5;
+    font-weight: 400;
+    color: blue;
+}
+
+.container{
+    display: grid;
+    grid-template-rows:   80vh min-content repeat(4,min-content) ;
+    grid-template-columns: repeat(10,minmax(min-content,25rem)) ;
+
+    @media only screen and(max-width:690px) {
+        grid-template-rows: 60vh;
+        
+    }
+   
+}
+
+.sidebar{
+    &-bg{
+background-image: red;
+height: 3rem;
+width: 3rem;
+border-radius: 50px;
+position: fixed;
+right: 60px;
+z-index: 1000;
+
+
+@media only screen and(max-width:800px){
+    float: right;
+}
+    }
+
+&-item-nav{
+    margin: 1.5rem;
+    list-style: none;
+}
+    &-item-btn{
+        color: azure;
+        font-size: 40px;
+text-decoration: none;
+text-transform: uppercase;
+letter-spacing: 2px;
+
+&:hover{
+    background-color: gold;
+    padding: 1rem 2rem;
+    transition: .3s;
+}
+    }
+
+    &-input:checked + &-label &-icon::before{
+     transform: rotate(135deg);
+     top: 0;
+
+     &::after{
+         transform: rotate(-135deg);
+         top: 0;
+     }
+    }
+
+    &-label{
+        background-color: rgb(238, 238, 238);
+        height: 3.5rem;
+        width: 3.5rem;
+        border-radius: 50px;
+        position: fixed;
+        right: 55px;
+        z-index: 2000;
+        top: 1px;
+        text-align: center;
+        box-shadow: 0 1rem 1rem black;
+
+        
+@media only screen and(max-width:800px){
+    right: 70px;
+}
+    }
+    &-input{
+        display: none;
+    }
+    &-icon{
+        background: #000;
+        height: 3px;
+        width: 2.5rem;
+        display: inline-block;
+        transform: translateY(.9rem);
+        &::before,
+        &::after{
+            content: "";
+            background: #000;
+            height: 2.5px;
+            width: 2.5rem;
+            display: inline-block;
+           
+        }
+        &::after{
+            transform: translateY(-2rem);
+        }
+        &::before{
+            transform: translateY(.1rem);
+        }
+    }
+}
+.material{
+    height: 100vh;
+    left: 90%;
+position: fixed;
+    opacity: 0;
+    z-index: 1500;
+    width: 100%;
+    
+}
+.sidebar-input:checked ~ .sidebar-bg{
+transform: scale(150);
+background:linear-gradient(rgb(9, 9, 78),rgba(15, 15, 95, 0.925));
+
+background-blend-mode: soft-light;
+transition: transform 0.2s cubic-bezier(0.83, 0, 0.17, 1);
+}
+.sidebar-input:checked ~ .material{
+width: 100%;
+opacity: 1;
+left: 40%;
+top: 20%;
+
+@media only screen and(max-width:700px) {
+    left: 20%;
+}
+}

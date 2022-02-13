@@ -1,0 +1,30 @@
+.video{
+    background-color: white;
+    grid-column: 1/-1;
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: repeat(3,20rem) ;
+}
+.video1{
+    background-size: cover;
+    width: 100%;
+    grid-row: 2/6;
+    grid-column: 1/7;
+    box-shadow: 0 2rem 3rem black;
+}
+.video-heading{
+    font-size: 30px;
+    color: black;
+    grid-column: 3/6;
+    align-self: center;
+    display: block;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  justify-self: flex-start;
+  box-shadow: 0 2rem 3rem black;
+  padding: 1rem 2rem;
+
+  @media only screen and(max-width:980px){
+      grid-column: 1/-1;
+    
+  }
+}
